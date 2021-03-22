@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Text, Box, Image } from '@chakra-ui/react';
-import { FaChartArea, FaRocketchat, FaBell } from 'react-icons/fa';
+import { FaChartArea, FaRocketchat, FaBell, FaSearch } from 'react-icons/fa';
 
 const MenuItem = (props) => {
   const { children, isLast, ...rest } = props;
@@ -28,15 +28,27 @@ const Header = () => {
       mb={0}
       border='1px'
       borderColor='gray.200'
-      borderTopRightRadius="md"
-      borderTopLeftRadius="md"
+      borderTopRightRadius='md'
+      borderTopLeftRadius='md'
     >
       <Flex align='center'>
         <Text fontSize='s' fontWeight='semibold' w='100' ml={8}>
           ModernMind
         </Text>
       </Flex>
-
+      <Box
+        as='div'
+        background='gray.100'
+        display='block'
+        flexBasis='auto'
+        width='55%'
+        height='80%'
+        borderRadius={5}
+        py={1}
+        px={4}
+      >
+        <FaSearch />
+      </Box>
       <Box display='block' flexBasis='auto' mr={10}>
         <Flex align='center' justify='flex-end' direction='row' pt={0}>
           <MenuItem>

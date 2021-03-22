@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# Circle communinty platform clone
+
+The project is an opportunity for me to familiriaze myself with react.js as I primarily use vue.js for frontend.
+I chose [circle.so](https://circle.so/) as a challenge as I'm passionate about the creator economy and making tools to enhance the
+lives of all these wonderful creatives.
+
+For the styling, I strayed from my go-to tools, bootstrap/bulma and went with [chakra-ui](https://chakra-ui.com), a wonderful
+open source component library.
+
+![circle-clone](https://res.cloudinary.com/lewiskori/image/upload/v1616418273/blog/Screenshot_2021-03-22_Circle_clone_eczj6g.png)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -8,12 +8,13 @@ const MainContent = () => {
       w='50%'
       borderWidth='1px'
       borderRadius='lg'
+      borderBottom='none'
       overflow='hidden'
       mt={7}
       ml={5}
       background='white'
       padding={6}
-      h='64.5vh'
+      h='68.4vh'
     >
       <VStack>
         <Text as='h6' mr='11.5rem'>
@@ -59,7 +60,7 @@ const MainContent = () => {
             zIndex='2'
           />
           <Text opacity='0.5' fontSize='xs' pl='0.8rem'>
-            Liked by 3 people
+            Liked by 2 people
           </Text>
         </HStack>
         <Person
@@ -78,7 +79,10 @@ const MainContent = () => {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, labore
           deleniti! Enim, recusandae natus qui quaerat cumque quisquam ut itaque
           ipsum perspiciatis modi explicabo veritatis soluta, quia obcaecati
-          quasi dignissimos!
+          quasi dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Expedita exercitationem cum repudiandae nihil quae voluptas,
+          fugiat itaque dolore delectus eveniet vitae ipsam velit, ipsa eligendi
+          quis error officiis officia esse!
         </Text>
       </VStack>
     </Flex>
