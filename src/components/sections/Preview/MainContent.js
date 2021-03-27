@@ -31,7 +31,7 @@ const MainContent = () => {
           <iframe
             src='https://player.vimeo.com/video/521446927'
             width='470'
-            frameborder='0'
+            frameBorder='0'
             title='Vimeo player'
           ></iframe>
         </Flex>

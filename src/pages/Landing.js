@@ -3,6 +3,7 @@ import React from 'react';
 import LandingLayout from '../components/layout/LandingLayout';
 import MainHero from '../components/sections/MainHero';
 import PreviewCard from '../components/sections/Preview/PreviewCard';
+import MainFeature from '../components/sections/Features/MainFeature'
 import { Text } from '@chakra-ui/react';
 
 const Title = () => {
@@ -22,6 +23,7 @@ const Landing = (props) => {
       <LandingLayout>
         <MainHero title={Title()} />
         <PreviewCard />
+        <MainFeature />
       </LandingLayout>
     </div>
   );
