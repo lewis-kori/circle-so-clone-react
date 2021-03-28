@@ -10,15 +10,23 @@ const MainFeature = () => {
       <Grid
         h='80vh'
         templateRows='repeat(3, 1fr)'
-        templateColumns='repeat(6, 1fr)'
+        templateColumns={{sm: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(6, 1fr)'}}
         gap={4}
+        p={[3, 5, 5, 2]}
       >
         <Feature
-          rowSpan={2}
+          rowSpan={{sm: 3, md: 3, lg: 2}}
           colSpan={2}
           heading='👋
           Membership communities'
           text="Circle offers the flexibility to create a membership experience that's truly yours. With direct integrations to tools like Memberstack and Memberspace, Circle can fit seamlessly into the rest of your membership stack."
+          features={[
+            'Exclusive memberships',
+            'Communities for courses',
+            'Premium masterminds',
+            'Paid newsletters',
+            'Conference masterminds',
+          ]}
         />
         <Feature
           rowSpan={1}
