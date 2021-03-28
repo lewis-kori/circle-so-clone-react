@@ -23,7 +23,7 @@ const Header = () => {
       align='center'
       justify='space-between'
       wrap='wrap'
-      w='90%'
+      w='100%'
       h='2rem'
       mb={0}
       border='1px'

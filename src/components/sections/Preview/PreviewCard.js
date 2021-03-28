@@ -7,9 +7,9 @@ import { Flex } from '@chakra-ui/react';
 
 const PreviewCard = () => {
   return (
-    <Flex as='section' width='100%' direction='column' mb={100} >
+    <Flex as='section' width='100%' direction='column' mb={100} overflow={['scroll', 'scroll']}>
       <Header />
-      <Flex direction='row' width='90%' background='orange.50' height='72vh'>
+      <Flex direction='row' width='100%' background='orange.50' height='72vh'>
         <LeftNav />
         <MainContent />
         <RightNav />

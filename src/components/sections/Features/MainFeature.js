@@ -5,7 +5,7 @@ import Feature from './Feature';
 
 const MainFeature = () => {
   return (
-    <Box as='div' mt={4} mb={5}>
+    <Box as='section' mt={4} mb={5}>
       <Header />
       <Grid
         h='80vh'

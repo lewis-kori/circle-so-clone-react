@@ -45,7 +45,9 @@ const Feature = ({ heading, text, features, ...rest }) => {
           )}
           {features &&
             features.length > 0 &&
-            features.map((feature) => <CheckedFeatures feature={feature} />)}
+            features.map((feature, index) => (
+              <CheckedFeatures feature={feature} key={index} />
+            ))}
         </Box>
       </VStack>
     </GridItem>
