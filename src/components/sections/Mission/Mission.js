@@ -20,17 +20,17 @@ const Mission = ({ ctaLink, ctaText }) => {
         <Heading as='h2' fontWeight='bold' fontSize='xl'>
           We built Circle for creators like you
         </Heading>
-        <Text w='50%' align='center'>
+        <Text w='50%' align='center' opacity='0.6'>
           Communities are the shelf life of independent online creators. They
           build connections among members, enable profound experiences, and
           empower vocal advocates.
         </Text>
-        <Text w='50%' align='center'>
+        <Text w='50%' align='center' opacity='0.6'>
           But after speaking to hundreds of creators, we observed them struggle
           with co-opted products, stitch together subpar solutions, and wrestle
           with discussion boards that went stale.
         </Text>
-        <Text mb={3} w='50%' align='center'>
+        <Text mb={3} w='50%' align='center' opacity='0.6'>
           So, we built Circle: a community platform that integrates with your
           creator stack and transforms your passive audience into passionate
           superfans for life.
