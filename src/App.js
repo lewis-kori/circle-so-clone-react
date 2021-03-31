@@ -8,7 +8,7 @@ function App() {
         <Route path="/" exact>
           <Landing />
         </Route>
-        <Route path="/login" exact>
+        <Route path="/login">
           <Login />
         </Route>
       </Switch>

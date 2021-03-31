@@ -9,9 +9,8 @@ const TabBtn = ({ text, tab, activeTab, handleClick }) => {
       colorScheme={renderCondition ? 'twitter' : 'white'}
       variant='outline'
       onClick={() => handleClick(tab)}
-      // isFullWidth={[true, false]}
-      // mb={{sm: '0.4rem', md: '0.4rem', lg: '0.4rem'}}
-      mb={5}
+      w={{ base: '100%', sm: '100%', md: 'auto', lg: 'auto' }}
+      mb={{base: 5, sm: 0 }}
     >
       {text}
     </Button>
