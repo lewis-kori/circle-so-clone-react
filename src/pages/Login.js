@@ -3,7 +3,7 @@ import { Center } from '@chakra-ui/react';
 
 const Login = () => {
   return (
-    <Center align='center'>
+    <Center>
       <LoginOptions />
     </Center>
   );

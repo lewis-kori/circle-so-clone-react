@@ -8,11 +8,10 @@ const MainFeature = () => {
     <Box as='section' mt={4} mb={5}>
       <Header />
       <Grid
-        h='80vh'
         templateRows='repeat(3, 1fr)'
         templateColumns={{sm: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(6, 1fr)'}}
         gap={4}
-        p={[3, 5, 5, 2]}
+        p={[3, 5, 10, 2]}
       >
         <Feature
           rowSpan={{sm: 3, md: 3, lg: 2}}

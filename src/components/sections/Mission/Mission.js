@@ -8,7 +8,7 @@ const Mission = ({ ctaLink, ctaText }) => {
     <Flex
       as='section'
       direction='row'
-      height='36rem'
+      height={['36rem', '36rem', '50.8rem', '36.9rem']}
       bgImage={['none', 'none', imageUrl, imageUrl]}
       // background='tomato'
       backgroundSize='cover'
@@ -20,17 +20,17 @@ const Mission = ({ ctaLink, ctaText }) => {
         <Heading as='h2' fontWeight='bold' fontSize='xl'>
           We built Circle for creators like you
         </Heading>
-        <Text w='50%' align='center' opacity='0.6'>
+        <Text w={['90%','50%']} align='center' opacity='0.6'>
           Communities are the shelf life of independent online creators. They
           build connections among members, enable profound experiences, and
           empower vocal advocates.
         </Text>
-        <Text w='50%' align='center' opacity='0.6'>
+        <Text w={['90%','50%']} align='center' opacity='0.6'>
           But after speaking to hundreds of creators, we observed them struggle
           with co-opted products, stitch together subpar solutions, and wrestle
           with discussion boards that went stale.
         </Text>
-        <Text mb={3} w='50%' align='center' opacity='0.6'>
+        <Text mb={3} w={['90%','50%']} align='center' opacity='0.6'>
           So, we built Circle: a community platform that integrates with your
           creator stack and transforms your passive audience into passionate
           superfans for life.

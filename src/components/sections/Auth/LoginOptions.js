@@ -14,7 +14,7 @@ const LoginBtn = ({ url, text, ...rest }) => {
 
 const LoginOptions = () => {
   return (
-    <Box as='div' maxW='40rem' my={150}>
+    <Box as='div' maxW='40rem' my={150} align='center'>
       <Image
         src='https://login.circle.so/assets/favicon-0cc2c9a96f7ef8c342681bbf961948df9d91749720c8615ff5f35e1d8ef55671.svg'
         borderRadius='full'
@@ -26,7 +26,7 @@ const LoginOptions = () => {
       <Stack direction='column'>
         <LoginBtn
           url='/login'
-          text='signin with an email'
+          text='sign in with an email'
           bg='blue.600'
           color='white'
         />

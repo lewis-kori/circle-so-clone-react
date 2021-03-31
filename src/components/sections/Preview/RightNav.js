@@ -7,7 +7,7 @@ const MenuItem = (props) => {
   return (
     <Text
       mt={3}
-      ml={{ base: 0, sm: isLast ? 0 : 8 }}
+      ml={{ base: 5, sm: isLast ? 0 : 8 }}
       display='block'
       fontWeight='light'
       fontSize='small'
@@ -33,7 +33,7 @@ const RightNav = () => {
         {/* welcome section */}
         <Flex align='left' justify='flex-start' direction='column' pt={0}>
           <MenuItem boxShadow='sm' bg='white' mt={7}>
-            <Text as='span' fontWeight='bold' fontSize='sm' ml={4} mb={5}>
+            <Text as='span' fontWeight='bold' fontSize='sm' ml={[10, 4]} mb={5}>
               Members
             </Text>
             <Person
@@ -47,7 +47,7 @@ const RightNav = () => {
             <Person />
           </MenuItem>
           <MenuItem boxShadow='sm' bg='white' mt={7}>
-            <Text as='span' fontWeight='bold' fontSize='sm' ml={4} mb={5}>
+            <Text as='span' fontWeight='bold' fontSize='sm' ml={[10, 4]} mb={5}>
               Moderator
             </Text>
             <Person name='lewis kori' />

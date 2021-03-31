@@ -5,7 +5,8 @@ const Header = ({ title, subtitle, ...rest }) => {
   return (
     <Flex
       align='center'
-      justify={{ base: 'center', md: 'space-around', xl: 'space-between' }}
+      // justify={{ base: 'center', md: 'space-around', xl: 'space-between' }}
+      justify='center'
       direction={{ md: 'row' }}
       wrap='no-wrap'
       minH='20vh'
@@ -15,7 +16,7 @@ const Header = ({ title, subtitle, ...rest }) => {
     >
       <Stack
         spacing={4}
-        w={{ base: '80%', md: '90%' }}
+        w={{ base: '80%', md: '90%', lg: '50%' }}
         align='center'
       >
         <Heading
@@ -29,10 +30,10 @@ const Header = ({ title, subtitle, ...rest }) => {
         </Heading>
         <Heading
           as='h6'
-          size='sm'
+          size='md'
           color='primary.400'
           opacity='0.6'
-          fontWeight='normal'
+          fontWeight='light'
           lineHeight={1.5}
           textAlign='center'
         >

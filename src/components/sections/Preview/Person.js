@@ -3,7 +3,7 @@ import { SkeletonText, Image, Text, Flex } from '@chakra-ui/react';
 import { PropTypes } from 'prop-types';
 const Person = ({ name, image, lines, ...rest }) => {
   return (
-    <Flex wrap='wrap' pl={4} pt={2} {...rest}>
+    <Flex wrap='wrap' pl={[10, 4]} pt={2} {...rest}>
       <Image
         boxSize='20px'
         borderRadius='full'
@@ -34,6 +34,6 @@ Person.propTypes = {
 };
 
 Person.defaultProps = {
-  name: 'nicole carr',
+  name: 'Eleri Benson',
   image: 'https://bit.ly/sage-adebayo',
 };
