@@ -7,7 +7,7 @@ lives of all these wonderful creatives.
 For the styling, I strayed from my go-to tools, bootstrap/bulma and went with [chakra-ui](https://chakra-ui.com), a wonderful
 open source component library.
 
-![circle-clone](https://res.cloudinary.com/lewiskori/image/upload/v1616418547/blog/Screenshot_2021-03-22_Circle_clone_1_jpjtco.png)
+![circle-clone](https://res.cloudinary.com/lewiskori/image/upload/v1617186414/blog/Screenshot_2021-03-31_Circle_clone_d26c8c.png)
 
 ## Getting Started with Create React App
 
