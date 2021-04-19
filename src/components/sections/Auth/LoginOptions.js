@@ -25,7 +25,7 @@ const LoginOptions = () => {
       <Heading as='h2' fontSize='xl' fontWeight='light'>Log in to your Circle account</Heading>
       <Stack direction='column'>
         <LoginBtn
-          url='/login'
+          url='/login-email'
           text='sign in with an email'
           bg='blue.600'
           color='white'
