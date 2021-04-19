@@ -9,6 +9,10 @@ open source component library.
 
 ![circle-clone](https://res.cloudinary.com/lewiskori/image/upload/v1617186414/blog/Screenshot_2021-03-31_Circle_clone_d26c8c.png)
 
+## live demo
+
+[click here](https://circle-so.netlify.app/) to access the live project
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

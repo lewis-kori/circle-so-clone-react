@@ -75,5 +75,5 @@ MainHero.defaultProps = {
   subtitle:
     'Bring together your discussions, memberships, and content. Integrate a thriving community wherever your audience is, all under your own brand.',
   ctaText: 'Start your 14 day free trial',
-  ctaLink: '/start',
+  ctaLink: '/signup',
 };

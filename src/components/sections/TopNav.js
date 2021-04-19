@@ -81,7 +81,7 @@ const TopNav = (props) => {
         >
           <MenuItem to='/pricing'>Pricing</MenuItem>
           <MenuItem to='/login'>Login</MenuItem>
-          <MenuItem to='/start' isLast>
+          <MenuItem to='/signup' isLast>
             <Button
               size='sm'
               rounded='md'
