@@ -145,7 +145,7 @@ const SignIn = () => {
           <FormErrorMessage>{formik.errors.repassword}</FormErrorMessage>
         </FormControl>
         <Button my={3} colorScheme='blue' variant='outline' type='submit'>
-          Login
+          Sign up
         </Button>
       </form>
       <Text as='span' fontSize='small' color='gray.500'>
