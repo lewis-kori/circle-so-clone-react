@@ -1,8 +1,17 @@
 import React from 'react';
-import { Flex, Text, VStack, HStack, Image } from '@chakra-ui/react';
+import {
+  Flex,
+  Text,
+  VStack,
+  HStack,
+  AvatarGroup,
+  Avatar,
+  useColorModeValue
+} from '@chakra-ui/react';
 import Person from './Person';
 
 const MainContent = () => {
+  const bg = useColorModeValue('white','gray.900')
   return (
     <Flex
       w='50%'
@@ -12,7 +21,7 @@ const MainContent = () => {
       overflow='hidden'
       mt={7}
       ml={5}
-      background='white'
+      background={bg}
       padding={6}
       h='68.4vh'
     >
@@ -43,24 +52,18 @@ const MainContent = () => {
           width='100%'
           padding={0}
         >
-          <Image
-            boxSize='20px'
-            borderRadius='full'
-            src='https://bit.ly/sage-adebayo'
-            alt='Segun Adebayo'
-            pr={0}
-            zIndex='1'
-          />
-          <Image
-            boxSize='20px'
-            borderRadius='full'
-            src='https://bit.ly/sage-adebayo'
-            alt='Segun Adebayo'
-            pl={0}
-            zIndex='2'
-          />
-          <Text opacity='0.5' fontSize='xs' pl='0.8rem'>
-            Liked by 2 people
+          <AvatarGroup size='xs' max={3}>
+            <Avatar name='Ryan Florence' src='https://bit.ly/ryan-florence' />
+            <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+            <Avatar name='Kent Dodds' src='https://bit.ly/kent-c-dodds' />
+            <Avatar
+              name='Prosper Otemuyiwa'
+              src='https://bit.ly/prosper-baba'
+            />
+            <Avatar name='Christian Nwamba' src='https://bit.ly/code-beast' />
+          </AvatarGroup>
+          <Text opacity='0.5' fontSize='sm' pl='0.8rem'>
+            Liked by 5 people
           </Text>
         </HStack>
         <Person

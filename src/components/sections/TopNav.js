@@ -1,6 +1,7 @@
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, useColorMode } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const MenuItem = (props) => {
   const { children, isLast, to = '/', ...rest } = props;
@@ -39,6 +40,7 @@ const MenuIcon = () => (
 );
 
 const TopNav = (props) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   const [show, setShow] = React.useState(false);
   const toggleMenu = () => setShow(!show);
 
@@ -81,6 +83,13 @@ const TopNav = (props) => {
         >
           <MenuItem to='/pricing'>Pricing</MenuItem>
           <MenuItem to='/login'>Login</MenuItem>
+          <MenuItem>
+            {colorMode === 'light' ? (
+              <FaMoon onClick={toggleColorMode} />
+            ) : (
+              <FaSun onClick={toggleColorMode} />
+            )}
+          </MenuItem>
           <MenuItem to='/signup' isLast>
             <Button
               size='sm'

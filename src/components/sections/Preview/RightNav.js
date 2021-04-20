@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, VStack, SkeletonText } from '@chakra-ui/react';
+import { Flex, Text, VStack, SkeletonText, useColorModeValue } from '@chakra-ui/react';
 import Person from './Person';
 
 const MenuItem = (props) => {
@@ -19,6 +19,7 @@ const MenuItem = (props) => {
 };
 
 const RightNav = () => {
+  const bg = useColorModeValue('white', 'gray.900')
   return (
     <Flex
       as='aside'
@@ -32,7 +33,7 @@ const RightNav = () => {
       <VStack display='block' flexBasis='auto'>
         {/* welcome section */}
         <Flex align='left' justify='flex-start' direction='column' pt={0}>
-          <MenuItem boxShadow='sm' bg='white' mt={7}>
+          <MenuItem boxShadow='sm' bg={bg} mt={7}>
             <Text as='span' fontWeight='bold' fontSize='sm' ml={[10, 4]} mb={5}>
               Members
             </Text>
@@ -46,13 +47,13 @@ const RightNav = () => {
             />
             <Person />
           </MenuItem>
-          <MenuItem boxShadow='sm' bg='white' mt={7}>
+          <MenuItem boxShadow='sm' bg={bg} mt={7}>
             <Text as='span' fontWeight='bold' fontSize='sm' ml={[10, 4]} mb={5}>
               Moderator
             </Text>
             <Person name='lewis kori' />
           </MenuItem>
-          <MenuItem boxShadow='sm' bg='white' mt={7} h='6rem'>
+          <MenuItem boxShadow='sm' bg={bg} mt={7} h='6rem'>
             <Text as='span' fontWeight='bold' fontSize='sm' ml={4} mb={10}>
               Pinned Topics
             </Text>

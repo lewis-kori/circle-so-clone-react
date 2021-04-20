@@ -1,13 +1,14 @@
-import React from 'react';
 import {
-  GridItem,
-  VStack,
-  Heading,
-  Text,
   Box,
-  Image,
+  GridItem,
+  Heading,
   HStack,
+  Image,
+  Text,
+  useColorModeValue,
+  VStack,
 } from '@chakra-ui/react';
+import React from 'react';
 
 const CheckedFeatures = ({ feature, ...rest }) => {
   return (
@@ -24,8 +25,9 @@ const CheckedFeatures = ({ feature, ...rest }) => {
 };
 
 const Feature = ({ heading, text, features, ...rest }) => {
+  const bg = useColorModeValue('gray.100', 'gray.900');
   return (
-    <GridItem background='gray.100' p={5} {...rest} borderRadius={5}>
+    <GridItem background={bg} p={5} {...rest} borderRadius={5}>
       <VStack>
         <Box as='div'>
           <Heading as='h4' mb={5} size='md' opacity='0.8' mx={[5, 5, 0, 0]}>
