@@ -10,13 +10,17 @@ import {
   InputGroup,
   InputRightElement,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
+import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
+import AuthStore from '../../../store/AuthStore';
 const Login = () => {
+  const store = new AuthStore();
   let history = useHistory();
+  const toast = useToast();
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
@@ -43,9 +47,24 @@ const Login = () => {
     },
     validate,
     onSubmit: (values, actions) => {
-      history.push('/')
-      // alert(JSON.stringify(values, 2));
-      // actions.setSubmitting(false);
+      store.login(values);
+      if (store.isAuthenticated) {
+        history.push('/');
+        toast({
+          title: `Welcome back to cirlcle ${store.loggedInUser.email}`,
+          position: 'top-right',
+          status: 'success',
+          isClosable: true,
+        });
+      } else {
+        toast({
+          title: 'Please provide the correct credentials',
+          position: 'top-right',
+          status: 'error',
+          isClosable: true,
+        });
+      }
+      actions.setSubmitting(false);
     },
   });
   return (
@@ -115,4 +134,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default observer(Login);
