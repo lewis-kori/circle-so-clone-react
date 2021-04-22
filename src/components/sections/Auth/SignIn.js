@@ -10,13 +10,16 @@ import {
   InputGroup,
   InputRightElement,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import store from '../../../store/AuthStore';
 
 const SignIn = () => {
   let history = useHistory();
+  const toast = useToast();
   const [show, setShow] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -30,15 +33,19 @@ const SignIn = () => {
   const validate = (values) => {
     const errors = {};
 
-    if (values.email.length < 4) {
-      errors.email = 'email must 5 characters or more';
+    if (!values.email) {
+      errors.email = 'email is required';
+    } else if (values.email.length < 4) {
+      errors.email = 'email must 4 characters or more';
     }
 
-    if (values.password.length < 8) {
+    if (!values.password) {
+      errors.password = 'password is required';
+    } else if (values.password.length < 8) {
       errors.password = 'password must be 8 characters or more ';
     }
-    if(values.password !== values.repassword){
-      errors.password = errors.repassword = 'password must match'
+    if (values.password !== values.repassword) {
+      errors.password = errors.repassword = 'password must match';
     }
     return errors;
   };
@@ -48,13 +55,19 @@ const SignIn = () => {
       fullName: '',
       email: '',
       password: '',
-      repassword: ''
+      repassword: '',
     },
     validate,
     onSubmit: (values, actions) => {
-      alert(JSON.stringify(values, 2, null));
+      store.registerNewUser(values);
+      toast({
+        title: `Welcome to cirlcle ${store.loggedInUser.fullName}`,
+        position: 'top-right',
+        status: 'success',
+        isClosable: true,
+      });
+      history.push('/');
       actions.setSubmitting(false);
-      history.push('/login')
     },
   });
   return (
@@ -78,7 +91,7 @@ const SignIn = () => {
           <Input
             type='text'
             onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
+            onBlur={formik.handleBlur}
             value={formik.values.fullName}
             isRequired
           />
@@ -92,7 +105,7 @@ const SignIn = () => {
           <Input
             type='email'
             onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
             isRequired
           />
@@ -109,7 +122,7 @@ const SignIn = () => {
               type={show ? 'text' : 'password'}
               placeholder='Enter password'
               onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
+              onBlur={formik.handleBlur}
               value={formik.values.password}
               isRequired
             />
@@ -132,7 +145,7 @@ const SignIn = () => {
               type={showConfirmPassword ? 'text' : 'password'}
               placeholder='confirm password'
               onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
+              onBlur={formik.handleBlur}
               value={formik.values.repassword}
               isRequired
             />

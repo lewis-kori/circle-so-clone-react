@@ -2,9 +2,18 @@ import { action, computed, makeObservable, observable } from 'mobx';
 
 class AuthStore {
   loggedInUser = {};
+  userExists = false;
   users = [
-    { email: 'korikihiu@gmail.com', password: '123qwerty' },
-    { email: 'vanessa@circle.so', password: 'heyyou123' },
+    {
+      email: 'korikihiu@gmail.com',
+      password: '123qwerty',
+      fullName: 'lewis kori',
+    },
+    {
+      email: 'vanessa@circle.so',
+      password: 'heyyou123',
+      fullName: 'Vanessa Mdee',
+    },
   ];
 
   findUser(email) {
@@ -20,16 +29,31 @@ class AuthStore {
   checkPasswordsMatched(userPassword, inputPassword) {
     return userPassword === inputPassword;
   }
-
-  login(payload) {
+  toggleUserExists(){
+    this.userExists = !this.userExists
+  }
+  registerNewUser(payload) {
     const authUser = this.findUser(payload.email);
+    if (authUser === null) {
+      this.users.push(payload);
+      this.setLoggedInUser(payload);
+    } else {
+      this.toggleUserExists()
+    }
+  }
+  setLoggedInUser(payload) {
+    this.loggedInUser = payload;
+  }
+
+  async login(payload) {
+    const authUser = await this.findUser(payload.email);
     if (authUser !== null) {
       const authenticate = this.checkPasswordsMatched(
         authUser.password,
         payload.password
       );
       if (authenticate) {
-        this.loggedInUser = authUser;
+        this.setLoggedInUser(authUser);
       }
     }
   }
@@ -48,7 +72,9 @@ class AuthStore {
   constructor() {
     makeObservable(this, {
       loggedInUser: observable,
+      userExists: observable,
       login: action,
+      setLoggedInUser: action,
       isAuthenticated: computed,
       storeDetails: computed,
     });
@@ -58,4 +84,5 @@ class AuthStore {
   }
 }
 
-export default AuthStore;
+const store = new AuthStore();
+export default store;

@@ -2,6 +2,8 @@ import { Box, Button, Flex, Text, useColorMode } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import store from '../../store/AuthStore';
+import { observer } from 'mobx-react-lite';
 
 const MenuItem = (props) => {
   const { children, isLast, to = '/', ...rest } = props;
@@ -44,6 +46,10 @@ const TopNav = (props) => {
   const [show, setShow] = React.useState(false);
   const toggleMenu = () => setShow(!show);
 
+  const handleLogout = () =>{
+    store.setLoggedInUser({})
+  }
+
   return (
     <Flex
       as='nav'
@@ -82,7 +88,11 @@ const TopNav = (props) => {
           pt={[4, 4, 0, 0]}
         >
           <MenuItem to='/pricing'>Pricing</MenuItem>
-          <MenuItem to='/login'>Login</MenuItem>
+          {store.isAuthenticated ? (
+            <MenuItem>{store.loggedInUser.fullName}</MenuItem>
+          ) : (
+            <MenuItem to='/login'>Login</MenuItem>
+          )}
           <MenuItem>
             {colorMode === 'light' ? (
               <FaMoon onClick={toggleColorMode} />
@@ -90,23 +100,41 @@ const TopNav = (props) => {
               <FaSun onClick={toggleColorMode} />
             )}
           </MenuItem>
-          <MenuItem to='/signup' isLast>
-            <Button
-              size='sm'
-              rounded='md'
-              color='blue.500'
-              bg='blue.100'
-              _hover={{
-                bg: 'blue.200',
-                color: 'blue.600',
-              }}
-            >
-              Get started
-            </Button>
-          </MenuItem>
+          {!store.isAuthenticated ? (
+            <MenuItem to='/signup' isLast>
+              <Button
+                size='sm'
+                rounded='md'
+                color='blue.500'
+                bg='blue.100'
+                _hover={{
+                  bg: 'blue.200',
+                  color: 'blue.600',
+                }}
+              >
+                Get started
+              </Button>
+            </MenuItem>
+          ) : (
+            <MenuItem isLast>
+              <Button
+                size='sm'
+                rounded='md'
+                color='blue.500'
+                bg='blue.100'
+                _hover={{
+                  bg: 'blue.200',
+                  color: 'blue.600',
+                }}
+                onClick={handleLogout}
+              >
+                Log out
+              </Button>
+            </MenuItem>
+          )}
         </Flex>
       </Box>
     </Flex>
   );
 };
-export default TopNav;
+export default observer(TopNav);

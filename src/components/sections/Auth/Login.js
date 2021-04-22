@@ -16,9 +16,8 @@ import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import AuthStore from '../../../store/AuthStore';
+import store from '../../../store/AuthStore';
 const Login = () => {
-  const store = new AuthStore();
   let history = useHistory();
   const toast = useToast();
   const [show, setShow] = useState(false);
@@ -29,13 +28,16 @@ const Login = () => {
 
   const validate = (values) => {
     const errors = {};
-
-    if (values.email.length < 4) {
+    if (!values.email) {
+      errors.email = 'email is required';
+    } else if (values.email.length < 4) {
       errors.email = 'email must 5 characters or more';
     }
 
-    if (values.password.length < 8) {
-      errors.password = 'password must be 8 characters or more ';
+    if (!values.password) {
+      errors.password = 'password is required';
+    } else if (values.password.length < 6) {
+      errors.password = 'password must be 6 characters or more ';
     }
     return errors;
   };
@@ -47,24 +49,25 @@ const Login = () => {
     },
     validate,
     onSubmit: (values, actions) => {
-      store.login(values);
-      if (store.isAuthenticated) {
-        history.push('/');
-        toast({
-          title: `Welcome back to cirlcle ${store.loggedInUser.email}`,
-          position: 'top-right',
-          status: 'success',
-          isClosable: true,
-        });
-      } else {
-        toast({
-          title: 'Please provide the correct credentials',
-          position: 'top-right',
-          status: 'error',
-          isClosable: true,
-        });
-      }
-      actions.setSubmitting(false);
+      store.login(values).then(() => {
+        if (store.isAuthenticated) {
+          history.push('/');
+          toast({
+            title: `Welcome back to cirlcle ${store.loggedInUser.fullName}`,
+            position: 'top-right',
+            status: 'success',
+            isClosable: true,
+          });
+        } else {
+          toast({
+            title: 'Please provide the correct credentials',
+            position: 'top-right',
+            status: 'error',
+            isClosable: true,
+          });
+        }
+        actions.setSubmitting(false);
+      });
     },
   });
   return (
@@ -88,7 +91,7 @@ const Login = () => {
           <Input
             type='email'
             onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
             isRequired
           />
@@ -105,7 +108,7 @@ const Login = () => {
               type={show ? 'text' : 'password'}
               placeholder='Enter password'
               onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
+              onBlur={formik.handleBlur}
               value={formik.values.password}
               isRequired
             />
